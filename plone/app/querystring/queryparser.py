@@ -305,6 +305,23 @@ def _absolutePath(context, row):
 def _navigationPath(context, row):
     return _pathByRoot(getNavigationRoot(context), context, row)
 
+def _currentPath(context, row):
+    row = Row(
+        index=row.index,
+        operator=row.operator,
+        values='./::1'
+    )
+
+    return _relativePath(context, row)
+
+def _parentPath(context, row):
+    row = Row(
+     index=row.index,
+     operator=row.operator,
+     values='../::1'
+    )
+
+    return _relativePath(context, row)
 
 def _relativePath(context, row):
     # Walk through the tree

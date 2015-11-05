@@ -204,10 +204,10 @@
 
     <records interface="plone.app.querystring.interfaces.IQueryOperation"
              prefix="plone.app.querystring.operation.string.absolutePath">
-        <value key="title" i18n:translate="">Absolute path</value>
-        <value key="description" i18n:translate="">Location in the site structure</value>
+        <value key="title" i18n:translate="">Custom path</value>
+        <value key="description" i18n:translate="">Choose a specific directory</value>
         <value key="operation">plone.app.querystring.queryparser._absolutePath</value>
-        <value key="widget">ReferenceWidget</value>
+        <value key="widget">RelatedItemsWidget</value>
     </records>
 
     <records interface="plone.app.querystring.interfaces.IQueryOperation"
@@ -224,6 +224,22 @@
         <value key="description" i18n:translate="">Use '../' to navigate to parent objects.</value>
         <value key="operation">plone.app.querystring.queryparser._relativePath</value>
         <value key="widget">RelativePathWidget</value>
+    </records>
+
+    <records interface="plone.app.querystring.interfaces.IQueryOperation"
+             prefix="plone.app.querystring.operation.string.parentPath">
+		<value key="title" i18n:translate="">Parent (../)</value>
+        <value key="description" i18n:translate="">View the parent directory listing</value>
+        <value key="operation">plone.app.querystring.queryparser._parentPath</value>
+        <value key="widget">HiddenPathWidget</value>
+	</records>
+
+    <records interface="plone.app.querystring.interfaces.IQueryOperation"
+             prefix="plone.app.querystring.operation.string.currentPath">
+		<value key="title" i18n:translate="">Current (./)</value>
+		<value key="description" i18n:translate="">View the directory listing for the current object.</value>
+        <value key="operation">plone.app.querystring.queryparser._currentPath</value>
+        <value key="widget">HiddenPathWidget</value>
     </records>
 
     <records interface="plone.app.querystring.interfaces.IQueryOperation"
@@ -253,6 +269,8 @@
             <element>plone.app.querystring.operation.string.absolutePath</element>
             <element>plone.app.querystring.operation.string.path</element>
             <element>plone.app.querystring.operation.string.relativePath</element>
+            <element>plone.app.querystring.operation.string.currentPath</element>
+            <element>plone.app.querystring.operation.string.parentPath</element>
        </value>
        <value key="group" i18n:translate="">Metadata</value>
     </records>
